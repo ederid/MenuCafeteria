@@ -33,16 +33,16 @@
             this.lblCategoria = new System.Windows.Forms.Label();
             this.lblPrecio = new System.Windows.Forms.Label();
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
-            this.txtNombreProducto = new System.Windows.Forms.TextBox();
+            this.txtProducto = new System.Windows.Forms.TextBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnLimpiarForm = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.btnBorrarMenu = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNombreProducto
@@ -104,13 +104,13 @@
             this.cmbCategoria.TabIndex = 4;
             this.cmbCategoria.Text = "- Seleccione -";
             // 
-            // txtNombreProducto
+            // txtProducto
             // 
-            this.txtNombreProducto.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreProducto.Location = new System.Drawing.Point(182, 75);
-            this.txtNombreProducto.Name = "txtNombreProducto";
-            this.txtNombreProducto.Size = new System.Drawing.Size(180, 22);
-            this.txtNombreProducto.TabIndex = 5;
+            this.txtProducto.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProducto.Location = new System.Drawing.Point(182, 75);
+            this.txtProducto.Name = "txtProducto";
+            this.txtProducto.Size = new System.Drawing.Size(180, 22);
+            this.txtProducto.TabIndex = 5;
             // 
             // txtDescripcion
             // 
@@ -127,6 +127,8 @@
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(60, 22);
             this.txtPrecio.TabIndex = 7;
+            this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecio_KeyPress);
+            this.txtPrecio.Leave += new System.EventHandler(this.txtPrecio_Leave);
             // 
             // btnAgregar
             // 
@@ -138,6 +140,7 @@
             this.btnAgregar.TabIndex = 8;
             this.btnAgregar.Text = "&Agregar Producto";
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnLimpiarForm
             // 
@@ -149,6 +152,7 @@
             this.btnLimpiarForm.TabIndex = 9;
             this.btnLimpiarForm.Text = "&Limpiar Formulario";
             this.btnLimpiarForm.UseVisualStyleBackColor = false;
+            this.btnLimpiarForm.Click += new System.EventHandler(this.btnLimpiarForm_Click);
             // 
             // btnSalir
             // 
@@ -160,15 +164,16 @@
             this.btnSalir.TabIndex = 10;
             this.btnSalir.Text = "&Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // dataGridView1
+            // dgvProductos
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLight;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(60, 232);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(635, 192);
-            this.dataGridView1.TabIndex = 11;
+            this.dgvProductos.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProductos.Location = new System.Drawing.Point(60, 232);
+            this.dgvProductos.Name = "dgvProductos";
+            this.dgvProductos.Size = new System.Drawing.Size(635, 192);
+            this.dgvProductos.TabIndex = 11;
             // 
             // btnBorrarMenu
             // 
@@ -178,6 +183,7 @@
             this.btnBorrarMenu.TabIndex = 12;
             this.btnBorrarMenu.Text = "&Borrar Menú";
             this.btnBorrarMenu.UseVisualStyleBackColor = true;
+            this.btnBorrarMenu.Click += new System.EventHandler(this.btnBorrarMenu_Click);
             // 
             // label1
             // 
@@ -196,13 +202,13 @@
             this.ClientSize = new System.Drawing.Size(762, 494);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnBorrarMenu);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvProductos);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnLimpiarForm);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.txtDescripcion);
-            this.Controls.Add(this.txtNombreProducto);
+            this.Controls.Add(this.txtProducto);
             this.Controls.Add(this.cmbCategoria);
             this.Controls.Add(this.lblPrecio);
             this.Controls.Add(this.lblCategoria);
@@ -210,7 +216,8 @@
             this.Controls.Add(this.lblNombreProducto);
             this.Name = "frmMenuCafeteria";
             this.Text = "MENU CAFETERIA";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.frmMenuCafeteria_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,13 +230,13 @@
         private System.Windows.Forms.Label lblCategoria;
         private System.Windows.Forms.Label lblPrecio;
         private System.Windows.Forms.ComboBox cmbCategoria;
-        private System.Windows.Forms.TextBox txtNombreProducto;
+        private System.Windows.Forms.TextBox txtProducto;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnLimpiarForm;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvProductos;
         private System.Windows.Forms.Button btnBorrarMenu;
         private System.Windows.Forms.Label label1;
     }

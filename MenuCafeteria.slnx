@@ -1,3 +1,9 @@
 <Solution>
-  <Project Path="MenuCafeteria.csproj" Id="13ccebce-c6fd-4f55-b99e-c1bed768e75b" />
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+  </Configurations>
+  <Project Path="MenuCafeteria.csproj" Id="13ccebce-c6fd-4f55-b99e-c1bed768e75b">
+    <Platform Solution="*|x64" Project="x64" />
+  </Project>
 </Solution>
