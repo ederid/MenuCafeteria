@@ -27,6 +27,7 @@ Aplicación de escritorio desarrollada en C# (Visual Studio Community 2026) con 
 ![Captura del Formulario Principal](img/front-end.png)
 1. Base de Datos.
    Si no existe la tabla Productos para almacenar los productos del menú, se crea en el mismo código mediante la función CrearBaseDeDatos.
+   
    ![Captura del Formulario Principal](img/codigo-crear-tabla.png)
    
 3. 
