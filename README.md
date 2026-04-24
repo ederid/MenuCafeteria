@@ -22,7 +22,7 @@ Aplicación de escritorio desarrollada en C# (Visual Studio Community 2026) con 
 4. Ejecuta el script de la base de datos incluido en la carpeta `/db`.
 
 ## Demostración
-![Captura del Formulario Principal](img/screenshot2.png)
+![Captura del Formulario Principal](img/front-end.png)
 
 ## Integrantes
 * Ederid Ramos Braulio - 333000028
